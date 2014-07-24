@@ -6,10 +6,15 @@
         <div class="row">
             <h1>About us</h1>
             <p>This is the <a href="http://github.com/michaelhawkins/playful-prelaunch" target="_blank">
-              Playful Prelaunch</a> Play Framework sample application.
-              You can find a working version of this app on
-              <a href="http://playful-prelaunch.herokuapp.com" target="_blank">Heroku</a>.
+                Playful Prelaunch</a> Play Framework sample application.
+                You can find a working version of this app on
+                <a href="http://playful-prelaunch.herokuapp.com" target="_blank">Heroku</a>.
             </p>
+            <form action="/insert" method="POST">
+                <input name="name" type="text" placeholder="name your feline friend"/>
+                <input name="color" type="text" placeholder="enter the color of this kitty cat"/>
+                <input type="submit"/>
+            </form>
         </div>
     </div>
 }
