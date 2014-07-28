@@ -8,10 +8,19 @@ import play.api.db.slick.Config.driver.simple._
 import play.api.db.slick._
 import play.api.libs.json.Json
 import play.api.mvc._
+import com.typesafe.plugin._
 
 object Application extends Controller {
 
   def index = Action {
+
+    val mail = use[MailerPlugin].email
+      .setSubject("essc.kz")
+      .setRecipient("Sultan Zhiyenbay essc.kz <zh.sulta@gmail.com>")
+      .setFrom("Sultan Zhiyenbay <myyk@egraphs.com>")
+
+    mail.send("Sultan Zhiyenbay", "<html>I like you.</html>")
+
     Ok(views.html.index("Home"))
   }
 

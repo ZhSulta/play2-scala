@@ -15,7 +15,8 @@ libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play" % playVersion,
   "org.webjars" %% "webjars-play" % playVersion,
   "org.postgresql" % "postgresql" % "9.3-1101-jdbc41",
-  "org.seleniumhq.selenium" % "selenium-java" % "2.42.2"
+  "org.seleniumhq.selenium" % "selenium-java" % "2.42.2",
+  "com.typesafe.play.plugins" %% "play-plugins-mailer" % "2.3.0"
   //  "org.webjars" % "bootstrap" % "3.1.1-2"
 )
 
