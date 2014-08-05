@@ -9,6 +9,7 @@ import play.api.db.slick._
 import play.api.libs.json.Json
 import play.api.mvc._
 import com.typesafe.plugin._
+import com.fasterxml.jackson._
 
 object Application extends Controller {
 
@@ -40,7 +41,7 @@ object Application extends Controller {
   def insert = DBAction { implicit rs =>
     val cat = catForm.bindFromRequest.get
     cats.insert(cat)
-Ok("assets")
+    Ok("assets")
 //    Redirect(routes.Application.index)
   }
 

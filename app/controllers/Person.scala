@@ -5,7 +5,7 @@ import play.api._
 import play.api.data.Form
 import play.api.data.Forms._
 import play.api.mvc._
-import play.api.libs.json.{JsValue, Json}
+import play.api.libs.json._
 import models._
 import play.api.libs.json.Json._
 import play.api.db.slick.Config.driver.simple._
@@ -24,6 +24,13 @@ object Person extends Controller {
 
   def getAll = DBAction { implicit rs =>
     Ok(Json.toJson(persons.run))
+  }
+
+  def getAllDust = DBAction { implicit rs =>
+    val json: JsValue = JsObject(Seq(
+      "names" -> Json.toJson(persons.run)
+    ))
+    Ok(Json.toJson(json))
   }
 
   val personForm = Form(
@@ -59,7 +66,8 @@ object Person extends Controller {
       Routes.javascriptRouter("jsRoutes")(
         controllers.routes.javascript.Person.create,
         controllers.routes.javascript.Person.delete,
-        controllers.routes.javascript.Person.getAll
+        controllers.routes.javascript.Person.getAll,
+        controllers.routes.javascript.Person.getAllDust
       )
     ).as("text/javascript")
   }

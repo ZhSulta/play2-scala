@@ -11,9 +11,12 @@ GET           /about                   controllers.Marketing.about
 POST          /insert                  controllers.Application.insert
 
 GET           /person                  controllers.Person.getAll
+GET           /persondust              controllers.Person.getAllDust
 DELETE        /person/:id              controllers.Person.delete(id: Long)
 POST          /person                  controllers.Person.create
 GET           /javascriptRoutes        controllers.Person.javascriptRoutes
 
+
 # Map static resources from the /public folder to the /assets URL path
 GET           /assets/*file            controllers.Assets.at(path="/public", file)
+GET           /assets/*file            controllers.Assets.versioned(path="/public", file: Asset)

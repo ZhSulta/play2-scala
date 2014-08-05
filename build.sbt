@@ -29,7 +29,7 @@ includeFilter in (Assets, LessKeys.less) := "*.less"
 
 CoffeeScriptKeys.sourceMap := false
 
-pipelineStages := Seq(htmlMinifier,filter,uglify,cssCompress,concat,gzip)
+pipelineStages := Seq(imagemin,htmlMinifier,filter,uglify,cssCompress,concat,digest,gzip)
 
 UglifyKeys.sourceMap := false
 
@@ -42,6 +42,17 @@ LessKeys.sourceMap := false
 CssCompress.suffix := ".min.css"
 
 Concat.groups := Seq(
-  "style-group.css" -> Seq("stylesheets/bootstrap.min.css", "stylesheets/foo.min.css", "stylesheets/index.min.css"),
-  "script-group.js" -> Seq("javascripts/jquery.min.js", "javascripts/bootstrap.min.js", "javascripts/foo.min.js", "javascripts/test.min.js")
+  "style-group.css" -> Seq(
+    "stylesheets/bootstrap.min.css",
+    "stylesheets/foo.min.css",
+    "stylesheets/index.min.css"
+  ),
+  "script-group.js" -> Seq(
+    "javascripts/jquery.min.js",
+    "javascripts/bootstrap.min.js",
+    "javascripts/foo.min.js",
+    "javascripts/test.min.js",
+    "javascripts/dust.min.js",
+    "example.min.js"
+  )
 )
